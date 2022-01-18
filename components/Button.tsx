@@ -22,9 +22,11 @@ export const Button = styled.button<IButton>`
   border-radius: 4px;
   cursor: pointer;
   &:hover {
-    opacity: 0.6;
-    color: ${(props) => props.theme.primary};
-    background-color: ${(props) => props.theme.colors.darkGrey};
+    ${(props) =>
+      props.variant !== 'contained' && `color:${props.theme.primary}`};
+    transform: scale(1.1);
+
+    // background-color: ${(props) => props.theme.colors.darkGrey};
   }
   color: ${(props) => props.theme.colors.text};
   border: none;

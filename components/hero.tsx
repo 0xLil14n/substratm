@@ -7,27 +7,51 @@ const Hero = () => (
   <>
     <Header />
     <StyledLandingPage>
-      <StyledHalf>
-        <StyledImage src="/landingPageImg.svg" />
-      </StyledHalf>
-      <Styled2ndHalf>
+      <HeroSection>
+        <StyledHalf>
+          <StyledImage src="/landingPageImg.svg" />
+        </StyledHalf>
+        <Styled2ndHalf>
+          <TextContainer>
+            <h1>SUBSTRATM</h1>
+            <h2>You in Blockchain.</h2>
+            <Description>
+              an open source, platform-agnostic social network protocol
+              leveraging blockchain, RSS, ActivityPub enabling a decentralized,
+              federated, permanent online presence with full control of your
+              social feed a trusted raw data stream with self-curated views free
+              of walled gardens and black box moderation
+            </Description>
+            <MetamaskLogin />
+          </TextContainer>
+        </Styled2ndHalf>
+      </HeroSection>
+      <AboutSubstratm>
         <TextContainer>
-          <h1>SUBSTRATM</h1>
-          <h2>You in Blockchain.</h2>
+          <h1>Reason behind SUBSTRATM</h1>
           <Description>
-            an open source, platform-agnostic social network protocol leveraging
-            blockchain, RSS, ActivityPub enabling a decentralized, federated,
-            permanent online presence with full control of your social feed a
-            trusted raw data stream with self-curated views free of walled
-            gardens and black box moderation
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </Description>
-          <MetamaskLogin />
         </TextContainer>
-      </Styled2ndHalf>
+        <StyledImage src="/unity.svg" />
+      </AboutSubstratm>
     </StyledLandingPage>
   </>
 );
-
+const AboutSubstratm = styled.div`
+  background: #f2f2f2;
+  width: 100%;
+  height: 110vh;
+  color: black;
+  display: flex;
+  flex-direction: row;
+`;
 const Description = styled.p`
   margin-bottom: 25px;
 `;
@@ -47,12 +71,12 @@ const TextContainer = styled.div`
   }
 `;
 
-const StyledImage = styled.img`
-  // height: 90vh;
-  // width: 55vw;
-`;
-
+const StyledImage = styled.img``;
 const StyledLandingPage = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const HeroSection = styled.div`
   width: 100%;
   height: 110vh;
   display: flex;
