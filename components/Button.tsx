@@ -19,17 +19,21 @@ const getOutlinedStyles = (
 
 export const Button = styled.button<IButton>`
   font-family: 'Sen', sans-serif;
+  cursor: pointer;
   color: ${(props) => props.theme.colors.text};
   border: none;
 
   // outlined variant
-  background-color: white;
+  ${(props) =>
+    props.variant === 'outlined' &&
+    `background-color: white;
   color: black;
   border: 2px solid
-    ${(props) =>
+    ${
       props.color === 'secondary'
         ? `${props.theme.colors.secondary}`
-        : `${props.theme.colors.primary}`};
+        : `${props.theme.colors.primary}`
+    };`}
 
   // contained variant
   ${(props) =>

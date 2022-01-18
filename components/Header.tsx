@@ -11,7 +11,9 @@ const Header = () => {
   const isLoggedIn = false;
   return (
     <StyledHeader>
-      <Substratm>SUBSTRATM</Substratm>
+      <Link href="/">
+        <Substratm>SUBSTRATM</Substratm>
+      </Link>
       <StyledToolbar>
         <Link href="/about">
           <StyledButton color="secondary">About</StyledButton>
@@ -27,18 +29,22 @@ const Header = () => {
     </StyledHeader>
   );
 };
-const Substratm = styled.div`
-  display: flex;
-  width: 24vw;
-  padding 0 30px;
-`;
+
 const StyledButton = styled(Button)`
   background: none;
   color: ${(props) => props.theme.colors.text};
 `;
+
+const Substratm = styled(StyledButton)`
+  font-size: 25px;
+  display: flex;
+  width: 24vw;
+  margin-left: 30px;
+`;
+
 const StyledToolbar = styled.div`
   & > * {
-    align-items: center;
+    align-items: stretch;
     margin-right: 10px;
     height: 65px;
     width: 170px;
