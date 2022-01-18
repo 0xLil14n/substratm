@@ -35,15 +35,6 @@ const Header = () => {
     </StyledHeader>
   );
 };
-const StyledMenu = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-const StyledButton = styled(Button)`
-  background: none;
-  color: ${(props) => props.theme.colors.text};
-`;
 
 const StyledSegmentIcon = styled(SegmentIcon)`
   font-size: 25px;
@@ -52,6 +43,15 @@ const StyledSegmentIcon = styled(SegmentIcon)`
   @media (min-width: ${TABLET}) {
     display: none;
   }
+`;
+const StyledMenu = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+const StyledButton = styled(Button)`
+  background: none;
+  color: ${(props) => props.theme.colors.text};
 `;
 
 const Substratm = styled(StyledButton)`
