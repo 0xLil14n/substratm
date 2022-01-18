@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// import MetamaskLogin from '../../components/MetamaskLogin/MetamaskLogin';
+import MetamaskLogin from './MetamaskLogin';
 const Hero = () => (
   <StyledLandingPage>
     <StyledHalf>
@@ -17,7 +17,7 @@ const Hero = () => (
           trusted raw data stream with self-curated views free of walled gardens
           and black box moderation
         </p>
-        {/* <MetamaskLogin /> */}
+        <MetamaskLogin />
       </TextContainer>
     </Styled2ndHalf>
   </StyledLandingPage>
@@ -26,7 +26,7 @@ const Hero = () => (
 const TextContainer = styled.div`
   padding: 0 40px;
   text-align: left;
-  width: 50vw;
+  max-width: 50vw;
   height: 50%;
 `;
 const StyledLandingPage = styled.div`
