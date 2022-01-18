@@ -8,7 +8,7 @@ import { TABLET } from '../utils/breakpoints';
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <StyledHeader showMenu={showMenu}>
+    <StyledHeader>
       <StyledMenu>
         <Link href="/">
           <Substratm>SUBSTRATM</Substratm>
