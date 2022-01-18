@@ -39,15 +39,16 @@ const Header = () => {
 const StyledSegmentIcon = styled(SegmentIcon)`
   font-size: 25px;
   cursor: pointer;
-
-  @media (min-width: ${TABLET}) {
-    display: none;
-  }
 `;
 const StyledMenu = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  @media (min-width: ${TABLET}) {
+    ${StyledSegmentIcon} {
+      display: none;
+    }
+  }
 `;
 const StyledButton = styled(Button)`
   background: none;
