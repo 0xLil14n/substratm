@@ -50,7 +50,10 @@ const AboutSubstratm = styled.div`
   height: 110vh;
   color: black;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  @media (min-width: ${TABLET}) {
+    flex-direction: row;
+  }
 `;
 const Description = styled.p`
   margin-bottom: 25px;
