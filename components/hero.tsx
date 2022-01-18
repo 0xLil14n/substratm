@@ -36,29 +36,28 @@ const StyledLandingPage = styled.div`
   height: 110vh;
   display: flex;
 `;
-const LEVEL_1 = '#181823';
+
 const StyledImage = styled.img`
-  min-height: 100%;
-  min-width: 100%;
+  height: 90vh;
+  width: 55vw;
 `;
 const StyledHalf = styled.div`
-  height: 100vh;
   flex-basis: 40%;
+  width: 40vw;
   max-width: 600px;
   display: flex;
   flex-basis: auto;
   align-items: center;
   justify-content: flex-start;
 `;
-const LIGHT_GREY = '#DEECF9';
-const DARK_GREY = '#C7E0F4';
+
 const Styled2ndHalf = styled.div`
   width: 100%;
   display: flex;
   flex-basis: auto;
   align-items: center;
   justify-content: flex-start;
-  background: ${LEVEL_1};
+  background: ${(props) => props.theme.colors.levelOne};
   h1,
   h2 {
     font-size: 76px;
@@ -66,7 +65,7 @@ const Styled2ndHalf = styled.div`
     margin: 0;
   }
   h2 {
-    color: ${DARK_GREY};
+    color: ${(props) => props.theme.colors.darkGrey};
     opacity: 0.5;
   }
 `;

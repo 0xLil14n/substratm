@@ -1,7 +1,5 @@
 import '../styles/globals.css';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import type { ReactElement, ReactNode } from 'react';
-import type { NextPage } from 'next';
 
 import type { AppProps } from 'next/app';
 import { MoralisProvider } from 'react-moralis';
@@ -35,8 +33,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const PURPLE = '#5221E6';
+const LEVEL_1 = '#181823';
 const LIGHT_GREY = '#DEECF9';
-const DARK_GREY = '#C7E0F4';
 const theme = {
   primary: PURPLE,
   secondary: LIGHT_GREY,
@@ -52,6 +50,10 @@ const theme = {
     lightBlue: '#AFDBD2',
     onyx: '#36313D',
     text: '#FFFFFF',
+    darkGrey: '#C7E0F4',
+    lightGrey: LIGHT_GREY,
+    purple: PURPLE,
+    levelOne: LEVEL_1,
   },
   fonts: ['sans-serif', 'Roboto'],
   fontSizes: {
@@ -60,8 +62,5 @@ const theme = {
     large: '3em',
   },
 };
-const StyledApp = styled.div`
-  background-color: ${(props) => props.theme.background.default};
-  text: ${(props) => props.theme.colors.text};
-`;
+
 export default MyApp;
