@@ -1,6 +1,5 @@
 // import { Button } from '@mui/material';
-import styled from 'styled-components';
-import { Button } from '../components/Button';
+import { useEffect } from 'react';
 // import { useAppDispatch } from '../../slices/hooks';
 // import {
 //   login,
@@ -8,7 +7,9 @@ import { Button } from '../components/Button';
 //   toggleLogin,
 // } from '../../slices/login.slice';
 import { useMoralis } from 'react-moralis';
-import { useEffect } from 'react';
+import styled from 'styled-components';
+import { Button } from '../components/Button';
+import { TABLET } from '../utils/breakpoints';
 const MetamaskLogin = () => {
   // let dispatch = useAppDispatch();
   const {
@@ -68,7 +69,11 @@ const MetamaskLogin = () => {
 };
 
 const StyledButton = styled(Button)`
-  height: 65px;
-  width: 170px;
+  height: 40px;
+  width: 120px;
+  @media (min-width: ${TABLET}) {
+    height: 65px;
+    width: 170px;
+  }
 `;
 export default MetamaskLogin;

@@ -19,6 +19,7 @@ const getOutlinedStyles = (
 
 export const Button = styled.button<IButton>`
   font-family: 'Sen', sans-serif;
+  border-radius: 4px;
   cursor: pointer;
   color: ${(props) => props.theme.colors.text};
   border: none;
