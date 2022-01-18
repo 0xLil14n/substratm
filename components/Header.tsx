@@ -2,13 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { Button } from './Button';
-// import { useAppSelector } from '../../slices/hooks';
-// import { SubstramLogo } from '../../content/logo';
 import MetamaskLogin from './MetamaskLogin';
 
 const Header = () => {
-  //   const isLoggedIn = useAppSelector((x) => x.loginSlice.loggedIn);
-  const isLoggedIn = false;
   return (
     <StyledHeader>
       <Link href="/">
