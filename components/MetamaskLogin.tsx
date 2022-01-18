@@ -62,7 +62,7 @@ const MetamaskLogin = () => {
           ? 'Loading...'
           : isLoggedIn
           ? 'Disconnect'
-          : 'Connect Wallet'}
+          : `Connect${'\u00A0'}Wallet`}
       </StyledButton>
     </>
   );

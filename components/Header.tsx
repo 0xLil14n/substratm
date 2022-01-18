@@ -3,13 +3,18 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { Button } from './Button';
 import MetamaskLogin from './MetamaskLogin';
-
+import SegmentIcon from '@mui/icons-material/Segment';
+import { TABLET } from '../utils/breakpoints';
 const Header = () => {
   return (
     <StyledHeader>
       <Link href="/">
         <Substratm>SUBSTRATM</Substratm>
       </Link>
+
+      <div>
+        <StyledSegmentIcon />
+      </div>
       <StyledToolbar>
         <Link href="/about">
           <StyledButton color="secondary">About</StyledButton>
@@ -31,34 +36,55 @@ const StyledButton = styled(Button)`
   color: ${(props) => props.theme.colors.text};
 `;
 
-const Substratm = styled(StyledButton)`
+const StyledSegmentIcon = styled(SegmentIcon)`
   font-size: 25px;
+  cursor: pointer;
+
+  @media (min-width: ${TABLET}) {
+    display: none;
+  }
+`;
+
+const Substratm = styled(StyledButton)`
+  font-size: 20px;
   display: flex;
   width: 24vw;
-  margin-left: 30px;
+
+  @media (min-width: ${TABLET}) {
+    font-size: 25px;
+    margin-left: 30px;
+  }
 `;
 
 const StyledToolbar = styled.div`
+  display: none;
   & > * {
-    align-items: stretch;
-    margin-right: 10px;
     height: 65px;
-    width: 170px;
+    width: 16vw;
+  }
+  @media (min-width: ${TABLET}) {
+    display: block;
+    & > * {
+      align-items: stretch;
+      margin-right: 7px;
+      max-width: 170px;
+    }
   }
 `;
 
 const StyledHeader = styled.nav`
+  padding: 14px 7px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 80px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  overflow: hidden;
-  @media screen and (max-width: 800px) {
-    flex-direction: column;
+
+  @media (min-width: ${TABLET}) {
+    padding: 7px;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
   }
 `;
 export default Header;

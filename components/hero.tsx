@@ -95,6 +95,7 @@ const Styled2ndHalf = styled.div`
   background: ${(props) => props.theme.colors.levelOne};
   h1,
   h2 {
+    font-size: 36px;
     font-weight: 780;
     margin: 0;
   }
@@ -105,7 +106,7 @@ const Styled2ndHalf = styled.div`
   @media (min-width: ${TABLET}) {
     h1,
     h2 {
-      font-size: 76px;
+      font-size: 5vw;
     }
   }
 `;
