@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { Button } from './Button';
@@ -6,16 +6,21 @@ import MetamaskLogin from './MetamaskLogin';
 import SegmentIcon from '@mui/icons-material/Segment';
 import { TABLET } from '../utils/breakpoints';
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
   return (
-    <StyledHeader>
-      <Link href="/">
-        <Substratm>SUBSTRATM</Substratm>
-      </Link>
+    <StyledHeader showMenu={showMenu}>
+      <StyledMenu>
+        <Link href="/">
+          <Substratm>SUBSTRATM</Substratm>
+        </Link>
 
-      <div>
-        <StyledSegmentIcon />
-      </div>
-      <StyledToolbar>
+        <StyledSegmentIcon
+          onClick={() => {
+            setShowMenu(!showMenu);
+          }}
+        />
+      </StyledMenu>
+      <StyledToolbar showMenu={showMenu}>
         <Link href="/about">
           <StyledButton color="secondary">About</StyledButton>
         </Link>
@@ -30,7 +35,11 @@ const Header = () => {
     </StyledHeader>
   );
 };
-
+const StyledMenu = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
 const StyledButton = styled(Button)`
   background: none;
   color: ${(props) => props.theme.colors.text};
@@ -56,14 +65,19 @@ const Substratm = styled(StyledButton)`
   }
 `;
 
-const StyledToolbar = styled.div`
-  display: none;
+const StyledToolbar = styled.div<{ showMenu?: boolean }>`
+  display: ${(props) => (props.showMenu ? 'flex' : 'none')};
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
   & > * {
     height: 65px;
     width: 16vw;
+    min-width: 120px;
   }
   @media (min-width: ${TABLET}) {
-    display: block;
+    display: flex;
+    flex-direction: row;
     & > * {
       align-items: stretch;
       margin-right: 7px;
@@ -77,10 +91,11 @@ const StyledHeader = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
-
+  flex-direction: column;
+  align-items: center;
   @media (min-width: ${TABLET}) {
+    flex-direction: row;
     padding: 7px;
-    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;

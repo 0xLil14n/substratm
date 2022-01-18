@@ -1,1 +1,1 @@
-export const TABLET = `600px`;
+export const TABLET = `730px`;
