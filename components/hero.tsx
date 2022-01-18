@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import MetamaskLogin from './MetamaskLogin';
+import Header from './Header';
 const Hero = () => (
   <StyledLandingPage>
+    <Header />
     <StyledHalf>
       <StyledImage src="/landingPageImg.svg" />
     </StyledHalf>
@@ -24,9 +26,9 @@ const Hero = () => (
 );
 
 const TextContainer = styled.div`
-  padding: 0 40px;
+  margin: 0px 40px 0px 70px;
   text-align: left;
-  max-width: 50vw;
+  max-width: 720px;
   height: 50%;
 `;
 const StyledLandingPage = styled.div`
@@ -36,8 +38,8 @@ const StyledLandingPage = styled.div`
 `;
 const LEVEL_1 = '#181823';
 const StyledImage = styled.img`
-  height: 80vh;
-  width: 55vw;
+  min-height: 100%;
+  min-width: 100%;
 `;
 const StyledHalf = styled.div`
   height: 100vh;
@@ -46,7 +48,7 @@ const StyledHalf = styled.div`
   display: flex;
   flex-basis: auto;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 const LIGHT_GREY = '#DEECF9';
 const DARK_GREY = '#C7E0F4';
@@ -55,11 +57,11 @@ const Styled2ndHalf = styled.div`
   display: flex;
   flex-basis: auto;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: ${LEVEL_1};
   h1,
   h2 {
-    font-size: 3.5em;
+    font-size: 76px;
     font-weight: 780;
     margin: 0;
   }
