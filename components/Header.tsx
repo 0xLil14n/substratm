@@ -5,10 +5,11 @@ import { Button } from './Button';
 import MetamaskLogin from './MetamaskLogin';
 import SegmentIcon from '@mui/icons-material/Segment';
 import { TABLET } from '../utils/breakpoints';
-const Header = () => {
+
+const Header = (props: { className: string }) => {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <StyledHeader>
+    <StyledHeader className={props.className}>
       <StyledMenu>
         <Link href="/">
           <Substratm>SUBSTRATM</Substratm>
@@ -98,8 +99,8 @@ const StyledHeader = styled.nav`
     flex-direction: row;
     padding: 7px;
     align-items: center;
-    position: fixed;
-    top: 0;
+    // position: sticky;
+    // top: 0;
     overflow: hidden;
   }
 `;

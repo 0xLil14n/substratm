@@ -4,9 +4,9 @@ import MetamaskLogin from './MetamaskLogin';
 import Header from './Header';
 import { TABLET } from '../utils/breakpoints';
 const Hero = () => (
-  <>
-    <Header />
-    <StyledLandingPage>
+  <StyledLandingPage>
+    <SectionOne>
+      <StyledHeader />
       <HeroSection>
         <StyledHalf>
           <StyledImage src="/landingPageImg.svg" />
@@ -26,24 +26,39 @@ const Hero = () => (
           </TextContainer>
         </Styled2ndHalf>
       </HeroSection>
-      <AboutSubstratm>
-        <TextContainer>
-          <h1>Reason behind SUBSTRATM</h1>
-          <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </Description>
-        </TextContainer>
-        <StyledImage src="/unity.svg" />
-      </AboutSubstratm>
-    </StyledLandingPage>
-  </>
+    </SectionOne>
+
+    <AboutSubstratm>
+      <TextContainer>
+        <h1>Reason behind SUBSTRATM</h1>
+        <Description>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Description>
+      </TextContainer>
+      <StyledImage src="/unity.svg" />
+    </AboutSubstratm>
+  </StyledLandingPage>
 );
+const IMG_WIDTH = 35; // percentage
+const StyledHeader = styled(Header)`
+  @media (min-width: ${TABLET}) {
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(
+      90deg,
+      black ${IMG_WIDTH}vw,
+      ${(props) => props.theme.colors.levelOne} 0%
+    );
+  }
+`;
+
 const AboutSubstratm = styled.div`
   background: #f2f2f2;
   width: 100%;
@@ -68,34 +83,45 @@ const TextContainer = styled.div`
   }
   @media (min-width: ${TABLET}) {
     margin: 0px 40px 0px 70px;
-    max-width: 720px;
+    max-width: 730px;
     height: 50%;
     line-height: normal;
   }
 `;
 
-const StyledImage = styled.img``;
+const StyledImage = styled.img`
+  flex-basis: ${IMG_WIDTH}%;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  @media (min-width: ${TABLET}) {
+    width: ${IMG_WIDTH}vw;
+    object-fit: revert;
+  }
+`;
 const StyledLandingPage = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const HeroSection = styled.div`
-  width: 100%;
-  height: 110vh;
+const SectionOne = styled.div`
   display: flex;
   flex-direction: column;
-  ${StyledImage} {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  @media (min-width: ${TABLET}) {
+    height: 110vh;
   }
+`;
+const HeroSection = styled.div`
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+
   @media (min-width: ${TABLET}) {
     flex-direction: row;
-    ${StyledImage} {
-      height: 90vh;
-      width: 55vw;
-      object-fit: revert;
-    }
   }
 `;
 
@@ -104,9 +130,9 @@ const StyledHalf = styled.div`
   height: 45vh;
   @media (min-width: ${TABLET}) {
     justify-content: flex-start;
-    width: 40vw;
+    width: ${IMG_WIDTH}vw;
     height: 100%;
-    max-width: 600px;
+    // max-width: 600px;
     display: flex;
     flex-basis: auto;
     align-items: center;
