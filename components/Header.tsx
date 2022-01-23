@@ -6,7 +6,7 @@ import MetamaskLogin from './MetamaskLogin';
 import SegmentIcon from '@mui/icons-material/Segment';
 import { TABLET } from '../utils/breakpoints';
 
-const Header = (props: { className: string }) => {
+const Header = (props: { className?: string }) => {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <StyledHeader className={props.className}>

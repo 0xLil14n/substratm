@@ -25,8 +25,6 @@ export const Button = styled.button<IButton>`
     ${(props) =>
       props.variant !== 'contained' && `color:${props.theme.primary}`};
     transform: scale(1.1);
-
-    // background-color: ${(props) => props.theme.colors.darkGrey};
   }
   color: ${(props) => props.theme.colors.text};
   border: none;

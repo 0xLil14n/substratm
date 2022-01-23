@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import Hero from '../components/hero';
+import LandingPage from '../components/LandingPage/LandingPage';
 
 const Home: NextPage = () => {
-  return <Hero />;
+  return <LandingPage />;
 };
 
 export default Home;

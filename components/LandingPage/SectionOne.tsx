@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import MetamaskLogin from './MetamaskLogin';
-import Header from './Header';
-import { TABLET } from '../utils/breakpoints';
-const Hero = () => (
-  <StyledLandingPage>
-    <SectionOne>
+import MetamaskLogin from '../MetamaskLogin';
+import Header from '../Header';
+import { TABLET } from '../../utils/breakpoints';
+
+const SectionOne = () => {
+  return (
+    <StyledContainer>
       <StyledHeader />
       <HeroSection>
         <StyledHalf>
@@ -26,26 +27,11 @@ const Hero = () => (
           </TextContainer>
         </Styled2ndHalf>
       </HeroSection>
-    </SectionOne>
-
-    <AboutSubstratm>
-      <TextContainer>
-        <h1>Reason behind SUBSTRATM</h1>
-        <Description>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </Description>
-      </TextContainer>
-      <StyledImage src="/unity.svg" />
-    </AboutSubstratm>
-  </StyledLandingPage>
-);
+    </StyledContainer>
+  );
+};
 const IMG_WIDTH = 35; // percentage
+
 const StyledHeader = styled(Header)`
   @media (min-width: ${TABLET}) {
     z-index: 1000;
@@ -59,17 +45,6 @@ const StyledHeader = styled(Header)`
   }
 `;
 
-const AboutSubstratm = styled.div`
-  background: #f2f2f2;
-  width: 100%;
-  height: 110vh;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  @media (min-width: ${TABLET}) {
-    flex-direction: row;
-  }
-`;
 const Description = styled.p`
   margin-bottom: 25px;
 `;
@@ -101,11 +76,8 @@ const StyledImage = styled.img`
     object-fit: revert;
   }
 `;
-const StyledLandingPage = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const SectionOne = styled.div`
+
+const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -163,4 +135,4 @@ const Styled2ndHalf = styled.div`
     }
   }
 `;
-export default Hero;
+export default SectionOne;
