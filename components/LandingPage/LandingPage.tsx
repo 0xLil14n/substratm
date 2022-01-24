@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import NetworksSection from './NetworksSection';
 
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
@@ -9,6 +10,7 @@ const LandingPage = () => {
     <StyledLandingPage>
       <SectionOne />
       <SectionTwo />
+      <NetworksSection />
     </StyledLandingPage>
   );
 };

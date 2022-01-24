@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { TABLET_WIDTH } from '../../utils/breakpoints';
@@ -37,7 +38,9 @@ const SectionTwo = () => {
         <StyledTitle>Reason behind SUBSTRATM</StyledTitle>
 
         <Description>{aboutUsCopy}</Description>
-        <StyledButton>More about us</StyledButton>
+        <Link href="/about">
+          <StyledButton>More about us</StyledButton>
+        </Link>
       </TextContainer>
       <ImageContainer>
         <StyledImage src="/unity.svg" />
@@ -59,6 +62,7 @@ const StyledTitle = styled.h1`
 
 const StyledButton = styled(Button)`
   color: #000000;
+  font-size: 18px;
   padding: 2px 0px;
   border-bottom: 1px solid;
   border-radius: 0;
@@ -71,7 +75,7 @@ const AboutSubstratm = styled.div`
   margin: 0;
   background: #f2f2f2;
   width: 100%;
-  height: 160vw;
+  height: 132vw;
 
   color: black;
   display: flex;
@@ -80,18 +84,18 @@ const AboutSubstratm = styled.div`
     flex-basis: 25%;
   }
   @media (min-width: ${DESKTOP_BREAKPOINT}) {
+    height: 110vw;
+    max-height: 708px;
     flex-direction: row;
-    max-height: 648px;
   }
 `;
 
 const Description = styled.p`
   margin-bottom: 25px;
-
+  font-size: 18px;
   color: black;
   opacity: 0.6;
   @media (min-width: ${DESKTOP_BREAKPOINT}) {
-    // max-width: 576px;
     width: 43vw;
   }
 `;
@@ -119,7 +123,7 @@ const ImageContainer = styled.div`
     right: 0;
   }
   @media (min-width: 1000px) {
-    top: 6%;
+    top: 4%;
   }
 `;
 
