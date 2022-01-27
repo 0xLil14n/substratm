@@ -75,13 +75,16 @@ const AboutSubstratm = styled.div`
   margin: 0;
   background: #f2f2f2;
   width: 100%;
-  height: 132vw;
+  height: 182vw;
 
   color: black;
   display: flex;
   flex-direction: column;
   & > * {
     flex-basis: 25%;
+  }
+  @media (min-width: 500px) {
+    height: 132vw;
   }
   @media (min-width: ${DESKTOP_BREAKPOINT}) {
     height: 110vw;
