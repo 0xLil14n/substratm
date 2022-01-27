@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Footer from '../footer/Footer';
 import NetworksSection from './NetworksSection';
 
 import SectionOne from './SectionOne';
@@ -7,11 +8,14 @@ import SectionTwo from './SectionTwo';
 
 const LandingPage = () => {
   return (
-    <StyledLandingPage>
-      <SectionOne />
-      <SectionTwo />
-      <NetworksSection />
-    </StyledLandingPage>
+    <>
+      <StyledLandingPage>
+        <SectionOne />
+        <SectionTwo />
+        <NetworksSection />
+        {/* <Footer /> */}
+      </StyledLandingPage>
+    </>
   );
 };
 
