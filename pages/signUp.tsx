@@ -6,7 +6,7 @@ import SignUpPage from '../components/signup/signUpPage';
 const signUp = () => {
   return (
     <div>
-      <SignUpPage />
+      {/* <SignUpPage /> */}
       <SetUpForm />
     </div>
   );
