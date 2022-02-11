@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import MetamaskLogin from '../MetamaskLogin';
 import Header from '../Header';
 import { TABLET } from '../../utils/breakpoints';
+import { Button } from '../Button';
 
 const SectionOne = () => {
   return (
@@ -23,13 +24,25 @@ const SectionOne = () => {
               social feed a trusted raw data stream with self-curated views free
               of walled gardens and black box moderation
             </Description>
-            <MetamaskLogin />
+            <a href="/signUp">
+              <SignUpButton variant="contained" color="primary">
+                Sign Up
+              </SignUpButton>
+            </a>
           </TextContainer>
         </Styled2ndHalf>
       </HeroSection>
     </StyledContainer>
   );
 };
+const SignUpButton = styled(Button)`
+  height: 40px;
+  width: 120px;
+  @media (min-width: ${TABLET}) {
+    height: 65px;
+    width: 170px;
+  }
+`;
 const IMG_WIDTH = 35; // percentage
 
 const StyledHeader = styled(Header)`
