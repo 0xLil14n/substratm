@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ethers } from 'ethers';
 import SubstratmNFT from './SubstratmNFT_metadata.json';
+import Form from './Form';
+import SetUpSteps from './setUpSteps';
 const NODE_URL =
   'https://speedy-nodes-nyc.moralis.io/72216de496ff399faf1f925a/avalanche/testnet';
 const provider = new ethers.providers.JsonRpcProvider(NODE_URL);
@@ -21,15 +23,30 @@ const SetUpForm = () => {
     );
 
     substratmContract.name().then((name: any) => {
-      console.log('contract name:', name);
       setContractName(name);
     });
   });
 
-  console.log('contract name??', contractName);
-  return <StyledForm>form contract name:{contractName}</StyledForm>;
+  return (
+    <StyledForm>
+      <SetUpSteps />
+      <Form />
+    </StyledForm>
+  );
 };
-const StyledForm = styled.div`
-  margin: 50px;
+const StyledSteps = styled(SetUpSteps)`
+  width: 25%;
+  margin: 10px;
+  border-radius: 10px;
 `;
+
+const StyledForm = styled.div`
+  // background: ${(props) => props.theme.colors.levelOne};
+  // border: 1px solid ${(props) => props.theme.colors.levelOne};
+  margin: 50px;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+`;
+
 export default SetUpForm;

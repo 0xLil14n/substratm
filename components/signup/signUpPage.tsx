@@ -11,7 +11,7 @@ const SignUpPage = () => {
       <Container>
         <div>
           <H1>Set up your profile</H1>
-          <H1 class="grey">Presence.</H1>
+          <H1 color="grey">Presence.</H1>
           <Description>
             lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -40,7 +40,7 @@ const H1 = styled.h1`
   margin: 5px;
   font-size: 55px;
   ${(props) =>
-    props.class == 'grey'
+    props.color == 'grey'
       ? `color: ${props.theme.colors.darkGrey}; opacity: 0.7;`
       : ``};
 `;

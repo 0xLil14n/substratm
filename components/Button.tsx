@@ -32,9 +32,9 @@ export const Button = styled.button<IButton>`
   // outlined variant
   ${(props) =>
     props.variant === 'outlined' &&
-    `background-color: white;
-  color: black;
-  border: 2px solid
+    `background: none;  
+      
+      border: 2px solid
     ${
       props.color === 'secondary'
         ? `${props.theme.colors.secondary}`

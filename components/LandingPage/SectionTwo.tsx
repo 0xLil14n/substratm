@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { TABLET_WIDTH } from '../../utils/breakpoints';
+import { DESKTOP_BREAKPOINT, TABLET_WIDTH } from '../../utils/breakpoints';
 import { Button } from '../Button';
-
-const DESKTOP_BREAKPOINT = '800px';
 
 const desktopAboutUsCopy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
