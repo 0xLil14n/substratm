@@ -11,13 +11,13 @@ const formInputs = [
   'Fediverse',
   'Twitter',
 ];
-const Form = () => {
+const Form = (props: { className?: string }) => {
   return (
-    <Container>
+    <Container className={props.className}>
       <Title>Social Links</Title>
       <StyledForm>
         {formInputs.map((input) => (
-          <FormInput2>
+          <FormInput>
             <label htmlFor={input.toLowerCase()}>{input}</label>
             <input
               type="text"
@@ -25,9 +25,9 @@ const Form = () => {
               name={input.toLowerCase()}
               required
             />
-          </FormInput2>
+          </FormInput>
         ))}
-        <FormInput2>
+        <FormInput>
           <label htmlFor={'verifyTwitter'}>&nbsp; </label>
           <ButtonContainer>
             <Button variant="contained" color="primary">
@@ -35,7 +35,7 @@ const Form = () => {
             </Button>
             <CheckCircleIcon color="success" />
           </ButtonContainer>
-        </FormInput2>
+        </FormInput>
       </StyledForm>
       <NavButtonContainer>
         <Button variant="outlined" color="primary">
@@ -64,22 +64,13 @@ const Title = styled.h2`
   font-size: 14px;
 `;
 
-const TestContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  & > * {
-    width: 50%;
-  }
-`;
-
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 80px;
 `;
 
-const FormInput2 = styled.div`
+const FormInput = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -91,9 +82,8 @@ const FormInput2 = styled.div`
     padding-bottom: 10px;
   }
   button {
-    height: 100%;
-    margin-right: 5px;
-    padding: 8px;
+    margin-right: 10px;
+    padding: 12px;
   }
 
   input {
@@ -103,46 +93,24 @@ const FormInput2 = styled.div`
   }
 `;
 
-const FormInput = styled.div`
-  margin: 15px;
-  display: flex;
-  flex-direction: column;
-
-  width: 40%;
-
-  label {
-    font-size: 12px;
-  }
-  input {
-    height: 100%;
-    width: 100%;
-    border: none;
-    border-radius: 6px;
-  }
-  button {
-    height: 100%;
-    margin-right: 10px;
-    width: 147px;
-  }
-`;
 const StyledForm = styled.form`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 100px;
 
   & > * {
-    width: 50%;
+    width: 45%;
+    margin: 5px;
   }
 `;
 const Container = styled.div`
-  border: 1px solid ${(props) => props.theme.colors.darkGrey};
   border-radius: 0px 10px 10px 0px;
   border-left: 0;
   border-right-radius: 0;
-  padding: 30px;
-  width: 100%;
-  height: 100%;
+  padding: 40px;
+  width: 65%;
+
   background: ${(props) => props.theme.colors.levelOne};
   h2 {
     text-align: center;

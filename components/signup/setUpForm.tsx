@@ -28,25 +28,28 @@ const SetUpForm = () => {
   });
 
   return (
-    <StyledForm>
-      <SetUpSteps />
-      <Form />
-    </StyledForm>
+    <Container>
+      <StyledSteps />
+      <StyledForm />
+    </Container>
   );
 };
 const StyledSteps = styled(SetUpSteps)`
-  width: 25%;
-  margin: 10px;
-  border-radius: 10px;
+  width: 45%;
+  width: 400px;
+  height: 100vh;
+`;
+const StyledForm = styled(Form)`
+  width: 55%;
+  min-width: 400px;
 `;
 
-const StyledForm = styled.div`
-  // background: ${(props) => props.theme.colors.levelOne};
+const Container = styled.div`
   // border: 1px solid ${(props) => props.theme.colors.levelOne};
   margin: 50px;
-  padding: 5px;
   border-radius: 10px;
   display: flex;
+  justify-content: center;
 `;
 
 export default SetUpForm;
