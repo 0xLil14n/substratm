@@ -17,7 +17,7 @@ const SetUpSteps = (props: { className?: string }) => (
 
     <Steps>
       {setUpSteps.map(({ name, description }) => (
-        <Step2>
+        <Step2 key={name}>
           <span>
             <CheckCircleIcon fontSize="small" />
           </span>

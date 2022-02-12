@@ -17,7 +17,7 @@ const Form = (props: { className?: string }) => {
       <Title>Social Links</Title>
       <StyledForm>
         {formInputs.map((input) => (
-          <FormInput>
+          <FormInput key={input.toLowerCase()}>
             <label htmlFor={input.toLowerCase()}>{input}</label>
             <input
               type="text"

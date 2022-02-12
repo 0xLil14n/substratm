@@ -4,6 +4,7 @@ import MetamaskLogin from '../MetamaskLogin';
 import Header from '../Header';
 import { TABLET } from '../../utils/breakpoints';
 import { Button } from '../Button';
+import Link from 'next/link';
 
 const SectionOne = () => {
   return (
@@ -24,11 +25,11 @@ const SectionOne = () => {
               social feed a trusted raw data stream with self-curated views free
               of walled gardens and black box moderation
             </Description>
-            <a href="/signUp">
+            <Link href="/signUp">
               <SignUpButton variant="contained" color="primary">
                 Sign Up
               </SignUpButton>
-            </a>
+            </Link>
           </TextContainer>
         </Styled2ndHalf>
       </HeroSection>
