@@ -49,12 +49,12 @@ const Container = styled.div`
   justify-content: center;
   ${StyledForm},${StyledSteps} {
     width: 100%;
+    min-width: 400px;
   }
   @media (min-width: ${TABLET}) {
     flex-direction: row;
     ${StyledForm} {
       width: 55%;
-      min-width: 400px;
     }
     ${StyledSteps} {
       width: 45%;
