@@ -9,7 +9,7 @@ const setUpSteps = [
   { name: 'Mint your Profile', description: 'Preview of NFT to be minted' },
 ];
 const SetUpSteps = (props: { className?: string }) => (
-  <Container className={props.className}>
+  <Container id="sign-up-form" className={props.className}>
     <SetUpTitle>
       <h2>Set up Profile Page</h2>
       <p>It’s quick and easy!</p>

@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DESKTOP_BREAKPOINT, TABLET } from '../../utils/breakpoints';
+import { DESKTOP_BREAKPOINT, TABLET, MOBILE } from '../../utils/breakpoints';
 import { Button } from '../Button';
 import Header from '../Header';
 
-const SignUpPage = () => {
+const SetUpYourProfile = () => {
   return (
     <>
       <Header />
       <Background>
         <Container>
           <TextContainer>
-            <H1>Set up your profile</H1>
-            <H1 color="grey">Presence.</H1>
+            <H1>Set up your&nbsp;profile</H1>
+            <H1 color="grey">presence.</H1>
             <Description>
               lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -25,113 +25,112 @@ const SignUpPage = () => {
               <ListItem>Lorem ipsum dolor sit amet, consectetur</ListItem>
               <ListItem>Lorem ipsum dolor sit amet, consectetur</ListItem>
             </List>
-            <StyledButton variant="contained" color="primary">
-              Get Started
-            </StyledButton>
+            <a href="#sign-up-form">
+              <StyledButton variant="contained" color="primary">
+                Get Started
+              </StyledButton>
+            </a>
           </TextContainer>
-
-          <ImageContainer>
-            <StyledImage src="/cube.svg" />
-          </ImageContainer>
+          <StyledImage src="/cube.svg" />
         </Container>
       </Background>
     </>
   );
 };
-const TextContainer = styled.span`
-  background: red;
-  min-width: 700px;
+const TextContainer = styled.div`
+  width: 100%;
+  max-width: 500px;
+  @media (min-width: ${MOBILE}) {
+    min-width: 500px;
+  }
 `;
 const H1 = styled.h1`
   margin: 5px;
-  font-size: 55px;
+
   ${(props) =>
     props.color == 'grey'
       ? `color: ${props.theme.colors.darkGrey}; opacity: 0.7;`
       : ``};
+
+  font-size: 44px;
+
+  @media (min-width: ${MOBILE}) {
+    font-size: 55px;
+  }
 `;
 const H4 = styled.h4`
   color: ${(props) => props.theme.colors.darkGrey};
-  opacity: 0.7;
+  opacity: 0.9;
+  margin-bottom: 10px;
+  font-size: 22px;
 `;
 const List = styled.ul`
   display: flex;
   flex-direction: column;
-  list-style-type: none;
-  margin: 0;
-  margin-bottom: 40px;
+  margin: 0px 0px 40px 0px;
 `;
 const ListItem = styled.li`
   display: flex;
   position: relative;
   margin: 10px 0;
+  font-size: 14px;
+  @media (min-width: ${MOBILE}) {
+    font-size: 16px;
+  }
   ::before {
     content: url('arrow-right.svg');
     transform: translatex(-50%);
   }
 `;
 const Description = styled.p`
-  margin-bottom: 25px;
-  font-size: 18px;
-
-  @media (min-width: ${DESKTOP_BREAKPOINT}) {
-    width: 43vw;
+  margin-bottom: 40px;
+  font-size: 16px;
+  @media (min-width: ${MOBILE}) {
+    font-size: 18px;
   }
 `;
 const StyledButton = styled(Button)`
   height: 40px;
   width: 120px;
-  @media (min-width: ${TABLET}) {
+  @media (min-width: ${MOBILE}) {
     height: 65px;
     width: 170px;
   }
 `;
-const IMG_WIDTH = 50;
+
 const Background = styled.div`
   background: ${(props) => props.theme.colors.levelOne};
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 const Container = styled.div`
-  background: ${(props) => props.theme.colors.levelOne};
-  background: blue;
-  height: 100%;
   width: 100%;
-  width: 900px;
-  padding: 80px 50px;
+  height: 680px;
+  max-width: 1200px;
+  padding: 80px 50px 180px 150px;
+  padding-left: 50px;
+  padding-top: 80px;
   display: flex;
   flex-direction: column;
-  & > * {
-    flex: 1 1 auto;
+
+  img {
+    visibility: collapse;
+  }
+
+  @media (min-width: 650px) {
+    height: 100%;
+    flex-direction: row;
   }
   @media (min-width: ${TABLET}) {
-    flex-direction: row;
-    justify-content: center;
+    img {
+      flex: 50%;
+      max-height: 550px;
+      visibility: visible;
+    }
   }
 `;
 
-const ImageContainer = styled.div`
-  // position: relative;
-
-  // @media (min-width: ${DESKTOP_BREAKPOINT}) {
-  //   position: absolute;
-  //   top: 16%;
-  //   right: 0;
-
-  // }
-  // @media (min-width: 1100px) {
-  //   top: 4%;
-  // }
-`;
-
-const StyledImage = styled.img`
-  // width: 90vw;
-  // height: 90vw;
-  // object-fit: cover;
-
-  // @media (min-width: ${DESKTOP_BREAKPOINT}) {
-  //   width: ${IMG_WIDTH}vw;
-  //   height: ${IMG_WIDTH}vw;
-  // }
-`;
-export default SignUpPage;
+const StyledImage = styled.img``;
+export default SetUpYourProfile;

@@ -4,6 +4,7 @@ import { ethers } from 'ethers';
 import SubstratmNFT from './SubstratmNFT_metadata.json';
 import Form from './Form';
 import SetUpSteps from './setUpSteps';
+import SetUpYourProfile from './setUpYourProfile';
 const NODE_URL =
   'https://speedy-nodes-nyc.moralis.io/72216de496ff399faf1f925a/avalanche/testnet';
 const provider = new ethers.providers.JsonRpcProvider(NODE_URL);
@@ -34,6 +35,7 @@ const SetUpForm = () => {
     </Container>
   );
 };
+
 const StyledSteps = styled(SetUpSteps)`
   width: 45%;
   width: 400px;
@@ -46,6 +48,7 @@ const StyledForm = styled(Form)`
 
 const Container = styled.div`
   // border: 1px solid ${(props) => props.theme.colors.levelOne};
+
   margin: 50px;
   border-radius: 10px;
   display: flex;

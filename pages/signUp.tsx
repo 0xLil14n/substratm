@@ -1,14 +1,14 @@
 import React from 'react';
 
 import SetUpForm from '../components/signup/setUpForm';
-import SignUpPage from '../components/signup/signUpPage';
+import SetUpYourProfile from '../components/signup/setUpYourProfile';
 
 const signUp = () => {
   return (
-    <div>
-      <SignUpPage />
+    <>
+      <SetUpYourProfile />
       <SetUpForm />
-    </div>
+    </>
   );
 };
 
