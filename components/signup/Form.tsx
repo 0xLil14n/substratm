@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { MOBILE } from '../../utils/breakpoints';
 const formInputs = [
   'Email',
   'Name',
@@ -94,6 +95,7 @@ const FormInput = styled.div`
 `;
 
 const StyledForm = styled.form`
+  max-width: 800px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -105,9 +107,6 @@ const StyledForm = styled.form`
   }
 `;
 const Container = styled.div`
-  border-radius: 0px 10px 10px 0px;
-  border-left: 0;
-  border-right-radius: 0;
   padding: 40px;
   width: 65%;
 

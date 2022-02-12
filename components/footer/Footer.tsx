@@ -4,9 +4,9 @@ import styled from 'styled-components';
 const Footer = () => <StyledFooter>Footer</StyledFooter>;
 
 const StyledFooter = styled.div`
-  position: absolute;
-  bottom: 0;
-  margin: 0;
+  background: blue;
+  height: 100px;
+  width: 1000px;
 `;
 
 export default Footer;

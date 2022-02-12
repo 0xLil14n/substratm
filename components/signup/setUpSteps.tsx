@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { MOBILE } from '../../utils/breakpoints';
 const setUpSteps = [
   { name: 'Connect Wallet', description: 'Connect your wallet to proceed' },
   { name: 'Personal Details', description: 'Please provide personal details' },
@@ -17,15 +18,15 @@ const SetUpSteps = (props: { className?: string }) => (
 
     <Steps>
       {setUpSteps.map(({ name, description }) => (
-        <Step2 key={name}>
+        <Step key={name}>
           <span>
             <CheckCircleIcon fontSize="small" />
           </span>
-          <StepTitle2>
+          <StepTitle>
             <h4>{name}</h4>
             <p>{description}</p>
-          </StepTitle2>
-        </Step2>
+          </StepTitle>
+        </Step>
       ))}
     </Steps>
   </Container>
@@ -33,15 +34,24 @@ const SetUpSteps = (props: { className?: string }) => (
 const SetUpTitle = styled.div`
   margin-bottom: 40px;
   h2 {
-    font-size: 25px;
+    font-size: 20px;
     margin: 0px;
     margin-bottom: 5px;
   }
   p {
+    font-size: 14px;
     margin-top: 0px;
   }
+  @media (min-width: ${MOBILE}) {
+    h2 {
+      font-size: 25px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
 `;
-const StepTitle2 = styled.div`
+const StepTitle = styled.div`
   & > * {
     margin: 0px;
     margin-left: 10px;
@@ -52,19 +62,26 @@ const StepTitle2 = styled.div`
     color: #d9d9d9;
   }
 `;
-const Step2 = styled.div`
+const Step = styled.div`
   display: flex;
-  margin-bottom: 72px;
+  margin-bottom: 42px;
 
   :not(:last-child) span:after {
-      content: ' ';
+    content: ' ';
+    margin-bottom: 42px;
+    border-left: 0.5px solid white;
+    margin-left: -12px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    position: absolute;
+    border-radius: 10px;
+    height: 40px;
+  }
+
+  @media (min-width: ${MOBILE}) {
+    margin-bottom: 72px;
+    :not(:last-child) span:after {
       height: 70px;
-      border-left: .5px solid white;
-      margin-left: -12px;
-      margin-top: 30px;
-      margin-bottom: 20px;
-      position: absolute;
-      border-radius: 10px;
     }
   }
 `;
@@ -78,8 +95,5 @@ const Container = styled.div`
   background: ${(props) => props.theme.colors.primary};
   text-align: center;
   padding: 20px 40px;
-  border-radius: 10px 0px 0px 10px;
-  border: 1px solid ${(props) => props.theme.colors.primary};
-  border-right: 0;
 `;
 export default SetUpSteps;

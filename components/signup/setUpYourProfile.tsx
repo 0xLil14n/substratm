@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { DESKTOP_BREAKPOINT, TABLET, MOBILE } from '../../utils/breakpoints';
 import { Button } from '../Button';
+import Footer from '../footer/Footer';
 import Header from '../Header';
 
 const SetUpYourProfile = () => {
@@ -34,6 +35,7 @@ const SetUpYourProfile = () => {
           <StyledImage src="/cube.svg" />
         </Container>
       </Background>
+      {/* <Footer /> */}
     </>
   );
 };
@@ -52,7 +54,7 @@ const H1 = styled.h1`
       ? `color: ${props.theme.colors.darkGrey}; opacity: 0.7;`
       : ``};
 
-  font-size: 44px;
+  font-size: 28px;
 
   @media (min-width: ${MOBILE}) {
     font-size: 55px;
@@ -62,7 +64,10 @@ const H4 = styled.h4`
   color: ${(props) => props.theme.colors.darkGrey};
   opacity: 0.9;
   margin-bottom: 10px;
-  font-size: 22px;
+  font-size: 16px;
+  @media (min-width: ${MOBILE}) {
+    font-size: 22px;
+  }
 `;
 const List = styled.ul`
   display: flex;
@@ -73,7 +78,7 @@ const ListItem = styled.li`
   display: flex;
   position: relative;
   margin: 10px 0;
-  font-size: 14px;
+  font-size: 12px;
   @media (min-width: ${MOBILE}) {
     font-size: 16px;
   }
@@ -84,7 +89,7 @@ const ListItem = styled.li`
 `;
 const Description = styled.p`
   margin-bottom: 40px;
-  font-size: 16px;
+  font-size: 14px;
   @media (min-width: ${MOBILE}) {
     font-size: 18px;
   }

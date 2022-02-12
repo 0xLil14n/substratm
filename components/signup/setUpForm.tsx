@@ -4,22 +4,23 @@ import { ethers } from 'ethers';
 import SubstratmNFT from './SubstratmNFT_metadata.json';
 import Form from './Form';
 import SetUpSteps from './setUpSteps';
-import SetUpYourProfile from './setUpYourProfile';
-import { TABLET } from '../../utils/breakpoints';
+import { MOBILE, TABLET } from '../../utils/breakpoints';
+
 const NODE_URL =
   'https://speedy-nodes-nyc.moralis.io/72216de496ff399faf1f925a/avalanche/testnet';
+
 const provider = new ethers.providers.JsonRpcProvider(NODE_URL);
 
 // provider is read-only get a signer for on-chain transactions
 const signer = provider.getSigner();
-const CONTRACT_ADDRESS = '0xb6221879ef1dc32eabd5986e534c46289149770b';
+const AVALANCHE_CONTRACT_ADDRESS = '0xb6221879ef1dc32eabd5986e534c46289149770b';
 const ABI = SubstratmNFT.output.abi;
 
 const SetUpForm = () => {
   const [contractName, setContractName] = useState('nothing');
   useEffect(() => {
     const substratmContract = new ethers.Contract(
-      CONTRACT_ADDRESS,
+      AVALANCHE_CONTRACT_ADDRESS,
       ABI,
       provider
     );
@@ -30,37 +31,52 @@ const SetUpForm = () => {
   });
 
   return (
-    <Container>
-      <StyledSteps />
-      <StyledForm />
-    </Container>
+    <Border>
+      <Container>
+        <StyledSteps />
+        <StyledForm />
+      </Container>
+    </Border>
   );
 };
-
-const StyledSteps = styled(SetUpSteps)``;
-const StyledForm = styled(Form)``;
+const Border = styled.div`
+  border-radius: 10px;
+  background: ${(props) => props.theme.colors.darkGrey};
+  margin: 50px;
+  max-width: 1200px;
+`;
+const StyledSteps = styled(SetUpSteps)`
+  border-radius: 10px 10px 0px 0px;
+  @media (min-width: ${TABLET}) {
+    border-radius: 10px 0px 0px 10px;
+  }
+`;
+const StyledForm = styled(Form)`
+  border-radius: 0px 0px 10px 10px;
+  @media (min-width: ${TABLET}) {
+    border-radius: 0px 10px 10px 0px;
+  }
+`;
 
 const Container = styled.div`
-  margin: 50px;
-  border-radius: 10px;
+  padding: 1px;
+
   display: flex;
   flex-direction: column;
 
   justify-content: center;
   ${StyledForm},${StyledSteps} {
     width: 100%;
-    min-width: 400px;
+    min-width: 270px;
   }
   @media (min-width: ${TABLET}) {
     flex-direction: row;
     ${StyledForm} {
-      width: 55%;
+      // width: 45%;
     }
     ${StyledSteps} {
-      width: 45%;
-
-      width: 400px;
-      height: 100vh;
+      // width: 45%;
+      max-width: 400px;
     }
   }
 `;
