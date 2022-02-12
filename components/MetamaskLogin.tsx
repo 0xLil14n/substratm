@@ -1,17 +1,10 @@
-// import { Button } from '@mui/material';
 import { useEffect } from 'react';
-// import { useAppDispatch } from '../../slices/hooks';
-// import {
-//   login,
-//   logout as logoutAction,
-//   toggleLogin,
-// } from '../../slices/login.slice';
+
 import { useMoralis } from 'react-moralis';
 import styled from 'styled-components';
 import { Button } from '../components/Button';
 import { TABLET } from '../utils/breakpoints';
 const MetamaskLogin = () => {
-  // let dispatch = useAppDispatch();
   const {
     isWeb3Enabled,
     isAuthenticated,
@@ -40,15 +33,6 @@ const MetamaskLogin = () => {
       enableWeb3();
     }
   }, [isAuthenticated]);
-
-  // useEffect(() => {
-  //   dispatch(toggleLogin());
-  //   if (isLoggedIn) {
-  //     dispatch(login());
-  //   } else {
-  //     dispatch(logoutAction());
-  //   }
-  // }, [isLoggedIn]);
 
   return (
     <>
