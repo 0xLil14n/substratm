@@ -113,6 +113,7 @@ const Description = styled.p`
 `;
 
 const TextContainer = styled.div`
+  padding: 25px;
   z-index: 10000;
   text-align: left;
   margin: 0px;
@@ -123,6 +124,7 @@ const TextContainer = styled.div`
 
   @media (min-width: ${DESKTOP_BREAKPOINT}) {
     line-height: normal;
+    padding: 50px;
   }
 `;
 
