@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { DESKTOP_BREAKPOINT, TABLET_WIDTH } from '../../utils/breakpoints';
+import {
+  DESKTOP_BREAKPOINT,
+  TABLET_WIDTH,
+  MOBILE,
+  TABLET,
+} from '../../utils/breakpoints';
 import { Button } from '../Button';
 
 const desktopAboutUsCopy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -31,19 +36,20 @@ const SectionTwo = () => {
     width < TABLET_WIDTH ? mobileAboutUsCopy : desktopAboutUsCopy;
 
   return (
-    <AboutSubstratm>
-      <TextContainer>
-        <StyledTitle>Reason behind SUBSTRATM</StyledTitle>
+    <Background>
+      <AboutSubstratm>
+        <TextContainer>
+          <StyledTitle>Reason behind SUBSTRATM</StyledTitle>
 
-        <Description>{aboutUsCopy}</Description>
-        <Link href="/about">
-          <StyledButton>More about us</StyledButton>
-        </Link>
-      </TextContainer>
-      <ImageContainer>
-        <StyledImage src="/unity.svg" />
-      </ImageContainer>
-    </AboutSubstratm>
+          <Description>{aboutUsCopy}</Description>
+          <Link href="/about">
+            <StyledButton>More about us</StyledButton>
+          </Link>
+        </TextContainer>
+
+        <img src="/unity.svg" />
+      </AboutSubstratm>
+    </Background>
   );
 };
 
@@ -52,6 +58,7 @@ const IMG_WIDTH = 50; // percentage
 const StyledTitle = styled.h1`
   width: 400px;
   margin-bottom: 40px;
+  font-size: 35px;
   @media (min-width: ${DESKTOP_BREAKPOINT}) {
     width: 56vw;
     font-size: 55px;
@@ -65,29 +72,39 @@ const StyledButton = styled(Button)`
   border-bottom: 1px solid;
   border-radius: 0;
 `;
-
-const AboutSubstratm = styled.div`
-  position: relative;
-
-  padding: 20px;
-  margin: 0;
+const Background = styled.div`
   background: #f2f2f2;
   width: 100%;
-  height: 182vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+const AboutSubstratm = styled.div`
+  max-width: 700px;
+
+  padding: 40px;
+  margin: 0;
 
   color: black;
   display: flex;
   flex-direction: column;
-  & > * {
-    flex-basis: 25%;
+
+  img {
+    width: 100%;
+    overflow: hidden;
   }
-  @media (min-width: 500px) {
-    height: 132vw;
-  }
+
   @media (min-width: ${DESKTOP_BREAKPOINT}) {
-    height: 110vw;
-    max-height: 708px;
     flex-direction: row;
+    max-width: 1500px;
+
+    & > * {
+      width: 50%;
+    }
+    img {
+      max-width: 700px;
+    }
   }
 `;
 
@@ -96,46 +113,24 @@ const Description = styled.p`
   font-size: 18px;
   color: black;
   opacity: 0.6;
+
   @media (min-width: ${DESKTOP_BREAKPOINT}) {
     width: 43vw;
+    max-width: 760px;
   }
 `;
 
 const TextContainer = styled.div`
   z-index: 10000;
   text-align: left;
+  margin: 0px;
 
   p {
     line-height: 150%;
   }
 
   @media (min-width: ${DESKTOP_BREAKPOINT}) {
-    margin: 0px 40px 0px 70px;
     line-height: normal;
-  }
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
-
-  @media (min-width: ${DESKTOP_BREAKPOINT}) {
-    position: absolute;
-    top: 16%;
-    right: 0;
-  }
-  @media (min-width: 1000px) {
-    top: 4%;
-  }
-`;
-
-const StyledImage = styled.img`
-  width: 90vw;
-  height: 100%;
-  object-fit: cover;
-
-  @media (min-width: ${DESKTOP_BREAKPOINT}) {
-    width: ${IMG_WIDTH}vw;
-    height: 100%;
   }
 `;
 

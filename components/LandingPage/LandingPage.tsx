@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Footer from '../footer/Footer';
 import NetworksSection from './NetworksSection';
 
 import SectionOne from './SectionOne';
