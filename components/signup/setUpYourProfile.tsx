@@ -5,7 +5,6 @@ import { Button } from '../Button';
 import Header from '../Header';
 
 const SetUpYourProfile = () => {
-  const [walletConnected, setWalletConnected] = useState(false);
   return (
     <>
       <Header />

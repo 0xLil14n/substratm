@@ -1,36 +1,84 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import AdjustIcon from '@mui/icons-material/Adjust';
+import CircleIcon from '@mui/icons-material/Circle';
+import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { MOBILE } from '../../utils/breakpoints';
-const setUpSteps = [
-  { name: 'Connect Wallet', description: 'Connect your wallet to proceed' },
-  { name: 'Personal Details', description: 'Please provide personal details' },
-  { name: 'Social Links', description: 'Add your social presence' },
-  { name: 'Ens Registration', description: 'Register for .ENS domain name' },
-  { name: 'Mint your Profile', description: 'Preview of NFT to be minted' },
-];
-const SetUpSteps = (props: { className?: string }) => (
-  <Container id="sign-up-form" className={props.className}>
-    <SetUpTitle>
-      <h2>Set up Profile Page</h2>
-      <p>It’s quick and easy!</p>
-    </SetUpTitle>
 
-    <Steps>
-      {setUpSteps.map(({ name, description }) => (
-        <Step key={name}>
-          <span>
-            <CheckCircleIcon fontSize="small" />
-          </span>
-          <StepTitle>
-            <h4>{name}</h4>
-            <p>{description}</p>
-          </StepTitle>
-        </Step>
-      ))}
-    </Steps>
-  </Container>
-);
+enum StepStatus {
+  Completed,
+  InProgress,
+  Incomplete,
+}
+const setUpSteps = [
+  {
+    name: 'Connect Wallet',
+    description: 'Connect your wallet to proceed',
+    status: StepStatus.Completed,
+  },
+  {
+    name: 'Personal Details',
+    description: 'Please provide personal details',
+    status: StepStatus.Completed,
+  },
+  {
+    name: 'Social Links',
+    description: 'Add your social presence',
+    status: StepStatus.InProgress,
+  },
+  {
+    name: 'Ens Registration',
+    description: 'Register for .ENS domain name',
+    status: StepStatus.Incomplete,
+  },
+  {
+    name: 'Mint your Profile',
+    description: 'Preview of NFT to be minted',
+    status: StepStatus.Incomplete,
+  },
+];
+
+type Props = {
+  status: StepStatus;
+};
+const StatusIndicator = ({ status }: Props) => {
+  switch (status) {
+    case StepStatus.InProgress:
+      return <AdjustIcon fontSize="small" />;
+    case StepStatus.Completed:
+      return <CheckCircleIcon fontSize="small" />;
+
+    default:
+      return <CircleIcon fontSize="small" />;
+  }
+};
+
+const SetUpSteps = (props: { className?: string }) => {
+  const [steps, updateSteps] = useState([]);
+  return (
+    <Container id="sign-up-form" className={props.className}>
+      <SetUpTitle>
+        <h2>Set up Profile Page</h2>
+        <p>It’s quick and easy!</p>
+      </SetUpTitle>
+
+      <Steps>
+        {setUpSteps.map(({ name, description, status }) => (
+          <Step key={name}>
+            <span>
+              <StatusIndicator status={status} />
+            </span>
+            <StepTitle>
+              <h4>{name}</h4>
+              <p>{description}</p>
+            </StepTitle>
+          </Step>
+        ))}
+      </Steps>
+    </Container>
+  );
+};
 const SetUpTitle = styled.div`
   margin-bottom: 40px;
   h2 {

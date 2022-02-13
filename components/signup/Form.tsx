@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { MOBILE, TABLET } from '../../utils/breakpoints';
+import { TABLET } from '../../utils/breakpoints';
 const formInputs = [
   'Email',
   'Name',
@@ -12,6 +12,7 @@ const formInputs = [
   'Fediverse',
   'Twitter',
 ];
+
 const Form = (props: { className?: string }) => {
   return (
     <Container className={props.className}>
@@ -34,6 +35,7 @@ const Form = (props: { className?: string }) => {
             <Button variant="contained" color="primary">
               Verify&nbsp;Twitter
             </Button>
+
             <CheckCircleIcon color="success" />
           </ButtonContainer>
         </FormInput>
