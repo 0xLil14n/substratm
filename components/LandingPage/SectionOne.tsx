@@ -6,7 +6,7 @@ import { TABLET } from '../../utils/breakpoints';
 import { Button } from '../Button';
 import Link from 'next/link';
 
-const SectionOne = () => {
+const SectionOneV2 = () => {
   return (
     <StyledContainer>
       <StyledHeader />
@@ -66,7 +66,7 @@ const Description = styled.p`
 const TextContainer = styled.div`
   margin: 20px;
   text-align: left;
-  height: 100vh;
+
   p {
     line-height: 150%;
   }
@@ -95,14 +95,14 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   @media (min-width: ${TABLET}) {
     height: 110vh;
   }
 `;
 const HeroSection = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 
@@ -113,12 +113,12 @@ const HeroSection = styled.div`
 
 const StyledHalf = styled.div`
   width: 100vw;
-  height: 45vh;
+  height: 50vh;
   @media (min-width: ${TABLET}) {
     justify-content: flex-start;
     width: ${IMG_WIDTH}vw;
     height: 100%;
-    // max-width: 600px;
+
     display: flex;
     flex-basis: auto;
     align-items: center;
@@ -132,6 +132,7 @@ const Styled2ndHalf = styled.div`
   align-items: center;
   justify-content: flex-start;
   background: ${(props) => props.theme.colors.levelOne};
+  padding-bottom: 40px;
   h1,
   h2 {
     font-size: 36px;
@@ -149,4 +150,4 @@ const Styled2ndHalf = styled.div`
     }
   }
 `;
-export default SectionOne;
+export default SectionOneV2;
