@@ -46,12 +46,15 @@ const Border = styled.div`
   max-width: 1200px;
 `;
 const StyledSteps = styled(SetUpSteps)`
+  width: 40%;
+
   border-radius: 10px 10px 0px 0px;
   @media (min-width: ${TABLET}) {
     border-radius: 10px 0px 0px 10px;
   }
 `;
 const StyledForm = styled(Form)`
+  width: 60%;
   border-radius: 0px 0px 10px 10px;
   @media (min-width: ${TABLET}) {
     border-radius: 0px 10px 10px 0px;
@@ -71,11 +74,8 @@ const Container = styled.div`
   }
   @media (min-width: ${TABLET}) {
     flex-direction: row;
-    ${StyledForm} {
-      // width: 45%;
-    }
+
     ${StyledSteps} {
-      // width: 45%;
       max-width: 400px;
     }
   }

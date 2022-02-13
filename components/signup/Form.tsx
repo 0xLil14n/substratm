@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { MOBILE } from '../../utils/breakpoints';
+import { MOBILE, TABLET } from '../../utils/breakpoints';
 const formInputs = [
   'Email',
   'Name',
@@ -103,7 +103,12 @@ const StyledForm = styled.form`
 
   & > * {
     width: 45%;
+    min-width: 200px;
     margin: 5px;
+    @media (min-width: ${TABLET}) {
+      width: 45%;
+      min-width: 120px;
+    }
   }
 `;
 const Container = styled.div`

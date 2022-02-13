@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { DESKTOP_BREAKPOINT, TABLET, MOBILE } from '../../utils/breakpoints';
+import { TABLET, MOBILE } from '../../utils/breakpoints';
 import { Button } from '../Button';
-import Footer from '../footer/Footer';
 import Header from '../Header';
 
 const SetUpYourProfile = () => {
+  const [walletConnected, setWalletConnected] = useState(false);
   return (
     <>
       <Header />
@@ -35,7 +35,6 @@ const SetUpYourProfile = () => {
           <StyledImage src="/cube.svg" />
         </Container>
       </Background>
-      {/* <Footer /> */}
     </>
   );
 };
@@ -43,6 +42,7 @@ const TextContainer = styled.div`
   width: 100%;
   max-width: 500px;
   @media (min-width: ${MOBILE}) {
+    max-width: 700px;
     min-width: 500px;
   }
 `;
@@ -108,12 +108,14 @@ const Background = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center;
 `;
 const Container = styled.div`
   width: 100%;
+
+  // background: blue;
+
   height: 680px;
-  max-width: 1200px;
+
   padding: 80px 50px 180px 150px;
   padding-left: 50px;
   padding-top: 80px;
@@ -123,15 +125,26 @@ const Container = styled.div`
   img {
     visibility: collapse;
   }
-
+  & > * {
+    justify-content: center;
+  }
   @media (min-width: 650px) {
     height: 100%;
     flex-direction: row;
+    overflow: hidden;
   }
   @media (min-width: ${TABLET}) {
+    padding: 100px;
+    margin: 0px 20px;
+
+    ${TextContainer} {
+      flex: 50%;
+    }
     img {
       flex: 50%;
       max-height: 550px;
+      max-width: 800px;
+
       visibility: visible;
     }
   }
