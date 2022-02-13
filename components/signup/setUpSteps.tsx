@@ -1,72 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useMoralis } from 'react-moralis';
 import styled from 'styled-components';
-import AdjustIcon from '@mui/icons-material/Adjust';
-import CircleIcon from '@mui/icons-material/Circle';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { MOBILE } from '../../utils/breakpoints';
 
-enum StepStatus {
-  Completed,
-  InProgress,
-  Incomplete,
-}
-const setUpSteps = [
-  {
-    name: 'Connect Wallet',
-    description: 'Connect your wallet to proceed',
-    status: StepStatus.Completed,
-  },
-  {
-    name: 'Personal Details',
-    description: 'Please provide personal details',
-    status: StepStatus.Completed,
-  },
-  {
-    name: 'Social Links',
-    description: 'Add your social presence',
-    status: StepStatus.InProgress,
-  },
-  {
-    name: 'Ens Registration',
-    description: 'Register for .ENS domain name',
-    status: StepStatus.Incomplete,
-  },
-  {
-    name: 'Mint your Profile',
-    description: 'Preview of NFT to be minted',
-    status: StepStatus.Incomplete,
-  },
-];
+import { MOBILE } from '../../utils/breakpoints';
+import StatusIndicator from './sign-up-steps/StatusIndicator';
+import StepStatus from './sign-up-steps/StepStatus';
+
+type SetUpStep = { name: string; description: string };
 
 type Props = {
-  status: StepStatus;
+  className?: string;
+  setUpSteps: SetUpStep[];
+  currentStep: number;
 };
-const StatusIndicator = ({ status }: Props) => {
-  switch (status) {
-    case StepStatus.InProgress:
-      return <AdjustIcon fontSize="small" />;
-    case StepStatus.Completed:
-      return <CheckCircleIcon fontSize="small" />;
 
-    default:
-      return <CircleIcon fontSize="small" />;
+const getStepStatus = (
+  step: number,
+  currentStep: number,
+  isAuthenticated: boolean
+) => {
+  if (step === 0) {
+    return isAuthenticated ? StepStatus.Completed : StepStatus.InProgress;
   }
+  if (step === currentStep) {
+    return StepStatus.InProgress;
+  } else if (step < currentStep) {
+    return StepStatus.Completed;
+  }
+  return StepStatus.Incomplete;
 };
 
-const SetUpSteps = (props: { className?: string }) => {
-  const [steps, updateSteps] = useState([]);
+const SetUpSteps: React.FC<Props> = ({
+  className,
+  setUpSteps,
+  currentStep,
+}) => {
+  const { isAuthenticated } = useMoralis();
   return (
-    <Container id="sign-up-form" className={props.className}>
+    <Container id="sign-up-form" className={className}>
       <SetUpTitle>
         <h2>Set up Profile Page</h2>
-        <p>It’s quick and easy!</p>
+        <p>It's quick and easy!</p>
       </SetUpTitle>
 
       <Steps>
-        {setUpSteps.map(({ name, description, status }) => (
+        {setUpSteps.map(({ name, description }, index) => (
           <Step key={name}>
             <span>
-              <StatusIndicator status={status} />
+              <StatusIndicator
+                status={getStepStatus(index, currentStep, isAuthenticated)}
+              />
             </span>
             <StepTitle>
               <h4>{name}</h4>
@@ -78,6 +61,7 @@ const SetUpSteps = (props: { className?: string }) => {
     </Container>
   );
 };
+
 const SetUpTitle = styled.div`
   margin-bottom: 40px;
   h2 {

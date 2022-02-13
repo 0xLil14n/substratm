@@ -2,28 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 
-const SignUpStep = (props: { children: any; className?: string }) => {
+type Props = {
+  className?: string;
+  onNextStep: () => void;
+  onBack: () => void;
+};
+
+const SignUpStep: React.FC<Props> = ({
+  children,
+  className,
+  onNextStep,
+  onBack,
+}) => {
   return (
-    <Container className={props.className}>
-      {props.children}
+    <Container className={className}>
+      {children}
       <NavButtonContainer>
-        <Button variant="outlined" color="primary">
-          Skip
+        <Button onClick={onBack} variant="outlined" color="primary">
+          Back
         </Button>
-        <Button variant="contained" color="primary">
+        <Button onClick={onNextStep} variant="contained" color="primary">
           Next
         </Button>
       </NavButtonContainer>
     </Container>
   );
 };
-const StyledStep = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  padding: 100px 0px;
-`;
 const NavButtonContainer = styled.div`
   text-align: center;
   display: flex;
@@ -35,10 +40,6 @@ const NavButtonContainer = styled.div`
     width: 80px;
     border-radius: 2px;
   }
-`;
-const Title = styled.h2`
-  font-size: 14px;
-  margin-bottom: 80px;
 `;
 
 const Container = styled.div`

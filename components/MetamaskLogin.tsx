@@ -17,7 +17,7 @@ const MetamaskLogin = () => {
   const isLoading = isAuthenticating || isWeb3EnableLoading;
   const isLoggedIn = isAuthenticated;
   const enableAndAuthenticate = async () => {
-    await enableWeb3();
+    enableWeb3();
     await authenticate();
   };
   const signInOrSignOut = () => {
