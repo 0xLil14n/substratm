@@ -1,12 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import {
-  DESKTOP_BREAKPOINT,
-  TABLET_WIDTH,
-  MOBILE,
-  TABLET,
-} from '../../utils/breakpoints';
+import { DESKTOP_BREAKPOINT, TABLET_WIDTH } from '../../utils/breakpoints';
 import { Button } from '../Button';
 
 const desktopAboutUsCopy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -53,10 +48,7 @@ const SectionTwo = () => {
   );
 };
 
-const IMG_WIDTH = 50; // percentage
-
 const StyledTitle = styled.h1`
-  width: 400px;
   margin-bottom: 40px;
   font-size: 35px;
   @media (min-width: ${DESKTOP_BREAKPOINT}) {
@@ -81,8 +73,8 @@ const Background = styled.div`
 `;
 
 const AboutSubstratm = styled.div`
+  width: 100%;
   max-width: 700px;
-
   padding: 40px;
   margin: 0;
 
