@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Button } from '../Button';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { TABLET } from '../../utils/breakpoints';
+import SignUpStep from './SignUpStep';
 const formInputs = [
   'Email',
   'Name',
@@ -15,7 +16,8 @@ const formInputs = [
 
 const Form = (props: { className?: string }) => {
   return (
-    <Container className={props.className}>
+    <>
+      {' '}
       <Title>Social Links</Title>
       <StyledForm>
         {formInputs.map((input) => (
@@ -40,15 +42,7 @@ const Form = (props: { className?: string }) => {
           </ButtonContainer>
         </FormInput>
       </StyledForm>
-      <NavButtonContainer>
-        <Button variant="outlined" color="primary">
-          Skip
-        </Button>
-        <Button variant="contained" color="primary">
-          Next
-        </Button>
-      </NavButtonContainer>
-    </Container>
+    </>
   );
 };
 const NavButtonContainer = styled.div`

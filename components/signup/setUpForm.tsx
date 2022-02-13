@@ -5,6 +5,8 @@ import SubstratmNFT from './SubstratmNFT_metadata.json';
 import Form from './Form';
 import SetUpSteps from './setUpSteps';
 import { MOBILE, TABLET } from '../../utils/breakpoints';
+import ConnectWalletStep from './ConnectWalletStep';
+import SignUpStep from './SignUpStep';
 
 const NODE_URL =
   'https://speedy-nodes-nyc.moralis.io/72216de496ff399faf1f925a/avalanche/testnet';
@@ -34,26 +36,32 @@ const SetUpForm = () => {
     <Border>
       <Container>
         <StyledSteps />
-        <StyledForm />
+        <StyledStep>
+          {getCurrentStep()}
+
+          {/* <ConnectWalletStep /> */}
+        </StyledStep>
       </Container>
     </Border>
   );
 };
+const getCurrentStep = () => {
+  return <Form />;
+};
 const Border = styled.div`
   border-radius: 10px;
   background: ${(props) => props.theme.colors.darkGrey};
-  margin: 50px;
-  max-width: 1200px;
+  margin: 40px;
 `;
 const StyledSteps = styled(SetUpSteps)`
   width: 40%;
-
   border-radius: 10px 10px 0px 0px;
   @media (min-width: ${TABLET}) {
     border-radius: 10px 0px 0px 10px;
   }
 `;
-const StyledForm = styled(Form)`
+
+const StyledStep = styled(SignUpStep)`
   width: 60%;
   border-radius: 0px 0px 10px 10px;
   @media (min-width: ${TABLET}) {
@@ -68,7 +76,7 @@ const Container = styled.div`
   flex-direction: column;
 
   justify-content: center;
-  ${StyledForm},${StyledSteps} {
+  ${StyledSteps}, ${StyledStep} {
     width: 100%;
     min-width: 270px;
   }
