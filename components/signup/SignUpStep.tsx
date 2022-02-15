@@ -4,6 +4,7 @@ import { Button } from '../Button';
 
 type Props = {
   className?: string;
+  currentStep: number;
   onNextStep: () => void;
   onBack: () => void;
 };
@@ -11,6 +12,7 @@ type Props = {
 const SignUpStep: React.FC<Props> = ({
   children,
   className,
+  currentStep,
   onNextStep,
   onBack,
 }) => {
@@ -18,9 +20,11 @@ const SignUpStep: React.FC<Props> = ({
     <Container className={className}>
       {children}
       <NavButtonContainer>
-        <Button onClick={onBack} variant="outlined" color="primary">
-          Back
-        </Button>
+        {currentStep !== 0 && (
+          <Button onClick={onBack} variant="outlined" color="primary">
+            Back
+          </Button>
+        )}
         <Button onClick={onNextStep} variant="contained" color="primary">
           Next
         </Button>
@@ -30,6 +34,8 @@ const SignUpStep: React.FC<Props> = ({
 };
 
 const NavButtonContainer = styled.div`
+  // position: absolute;
+  // bottom: 0;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -44,7 +50,7 @@ const NavButtonContainer = styled.div`
 
 const Container = styled.div`
   padding: 40px;
-  width: 100%;
+
   background: ${(props) => props.theme.colors.levelOne};
   h2 {
     text-align: center;

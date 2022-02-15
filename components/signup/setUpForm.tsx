@@ -7,7 +7,6 @@ import SetUpSteps from './setUpSteps';
 import { TABLET } from '../../utils/breakpoints';
 import ConnectWalletStep from './ConnectWalletStep';
 import SignUpStep from './SignUpStep';
-import { Hidden } from '@mui/material';
 
 const NODE_URL =
   'https://speedy-nodes-nyc.moralis.io/72216de496ff399faf1f925a/avalanche/testnet';
@@ -73,6 +72,7 @@ const SetUpForm = () => {
       <Container>
         <StyledSteps setUpSteps={setUpSteps} currentStep={currentStep} />
         <StyledStep
+          currentStep={currentStep}
           onBack={() => updateCurrentStep((x) => (x > 0 ? x - 1 : x))}
           onNextStep={() =>
             updateCurrentStep((x) => (x < setUpSteps.length ? x + 1 : x))
@@ -91,17 +91,19 @@ const Border = styled.div`
   margin: 40px;
 `;
 const StyledSteps = styled(SetUpSteps)`
-  width: 40%;
+  width: 100%;
   border-radius: 10px 10px 0px 0px;
   @media (min-width: ${TABLET}) {
+    width: 40%;
     border-radius: 10px 0px 0px 10px;
   }
 `;
 
 const StyledStep = styled(SignUpStep)`
-  width: 60%;
+  width: 100%;
   border-radius: 0px 0px 10px 10px;
   @media (min-width: ${TABLET}) {
+    width: 500px;
     border-radius: 0px 10px 10px 0px;
   }
 `;
@@ -114,8 +116,7 @@ const Container = styled.div`
 
   justify-content: center;
   ${StyledSteps}, ${StyledStep} {
-    width: 100%;
-    min-width: 270px;
+    min-width: 300px;
   }
   @media (min-width: ${TABLET}) {
     flex-direction: row;
