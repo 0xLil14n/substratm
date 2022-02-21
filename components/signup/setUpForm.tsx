@@ -44,11 +44,6 @@ const setUpSteps = [
     description: 'Preview of NFT to be minted',
     component: <ConnectWalletStep />,
   },
-  {
-    name: 'Minted!',
-    description: 'view your profile',
-    component: <ConnectWalletStep />,
-  },
 ];
 
 const SetUpForm = () => {

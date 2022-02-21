@@ -17,7 +17,6 @@ const formInputs = [
 const Form = (props: { className?: string }) => {
   return (
     <>
-      {' '}
       <Title>Social Links</Title>
       <StyledForm>
         {formInputs.map((input) => (
