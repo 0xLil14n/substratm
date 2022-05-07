@@ -3,7 +3,13 @@ import styled from 'styled-components';
 import { TABLET, MOBILE } from '../../utils/breakpoints';
 import { Button } from '../Button';
 import Header from '../Header';
-
+const description = `Your Substratm NFT is a platform-agnostic way for people to find and subscribe to you online. It contains an index of your existing social media profiles, accounts, blog, portfolio… any content you wish to include in your social stack.`;
+const steps = [
+  'Connect to the dapp with a compatible wallet',
+  'Upload a picture and enter personal details—these can be pseudonymous',
+  'Enter links to existing social profiles, and where compatible, confirm ownership',
+  'Mint an NFT containing this information along with other configurable fields that interact with the SUBSTRATM protocol',
+];
 const SetUpYourProfile = () => {
   return (
     <>
@@ -13,18 +19,18 @@ const SetUpYourProfile = () => {
           <TextContainer>
             <H1>Set up your&nbsp;profile</H1>
             <H1 color="grey">presence.</H1>
-            <Description>
-              lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea{' '}
-            </Description>
+            <Description>{description}</Description>
             <H4>Steps to follow</H4>
             <List>
-              <ListItem>Lorem ipsum dolor sit amet, consectetur</ListItem>
-              <ListItem>Lorem ipsum dolor sit amet, consectetur</ListItem>
-              <ListItem>Lorem ipsum dolor sit amet, consectetur</ListItem>
+              {steps.map((description) => (
+                <ListItem>{description}</ListItem>
+              ))}
             </List>
+            <h5>
+              Remember: Your wallet key will now be the key to your social
+              presence. If you lose access to the wallet you create this NFT
+              with, you lose access to your profile too. Don’t lose your keys!
+            </h5>
             <a href="#sign-up-form">
               <StyledButton variant="contained" color="primary">
                 Get Started

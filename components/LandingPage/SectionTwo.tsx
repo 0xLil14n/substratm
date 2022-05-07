@@ -4,17 +4,14 @@ import styled from 'styled-components';
 import { DESKTOP_BREAKPOINT, TABLET_WIDTH } from '../../utils/breakpoints';
 import { Button } from '../Button';
 
-const desktopAboutUsCopy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.`;
+export const desktopAboutUsCopy = `SUBSTRATM is an open source platform-agnostic social media network and protocol that allows its users to maintain a permanent and continuous social presence online across long timeframes.
 
-const mobileAboutUsCopy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et doloredeserunt mollit anim id
-est laborum.`;
+SUBSTRATM enables each user to maintain an on-chain list of subscribed and blocked people, topics, and sites that is maintained independent of and upstream from the content delivery networks it aggregates.
+
+The SUBSTRATM social networking protocol ensures continuity and longevity of user content, and maintains a permanent set of user preferences for outgoing and incoming content to create a precisely curated feed across decades, designed and optimised by each user and built to help online social connections outlast their proprietary social platforms. 
+`;
+
+const mobileAboutUsCopy = `SUBSTRATM is an open source platform-agnostic social media network and protocol that allows its users to maintain a permanent and continuous social presence online across long timeframes.`;
 
 const SectionTwo = () => {
   const [width, setWidth] = useState(0);
@@ -105,7 +102,7 @@ const Description = styled.p`
   font-size: 18px;
   color: black;
   opacity: 0.6;
-
+  white-space: pre-line;
   @media (min-width: ${DESKTOP_BREAKPOINT}) {
     width: 43vw;
     max-width: 760px;

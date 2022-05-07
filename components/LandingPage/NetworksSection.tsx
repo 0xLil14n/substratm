@@ -3,18 +3,16 @@ import styled from 'styled-components';
 import { TABLET, TABLET_WIDTH } from '../../utils/breakpoints';
 import SocialCard from '../SocialCard';
 
-const desktopAboutUsCopy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.`;
+const desktopAboutUsCopy = `A user’s SUBSTRATM NFT contains their personal details, authenticated legacy web social media accounts, photo, and any other information and content they want to share.
 
-const mobileAboutUsCopy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et doloredeserunt mollit anim id
-est laborum.`;
+The SUBSTRATM NFT also contains a database of every person, topic, and site the user subscribes to, or blocks.
 
+Subscriptions are handled by RSS, aggregating an open source content feed of blogs, news, and social posts via the SUBSTRATM frontend, like a news reader with more functionality and views.`;
+
+const mobileAboutUsCopy = `A user’s SUBSTRATM NFT contains their personal details, authenticated legacy web social media accounts, photo, and any other information and content they want to share.`;
+
+const twitterDescription = `You can verify your legacy Twitter account with the security of Chainlink`;
+const comingSoon = `Verification coming soon`;
 const NetworksSection = () => {
   // TODO consolidate this logic into its own hook
   const [width, setWidth] = useState(0);
@@ -37,10 +35,10 @@ const NetworksSection = () => {
         <Description>{aboutUsCopy}</Description>
       </StyledAbout>
       <Cards>
-        <SocialCard title="Twitter" description={mobileAboutUsCopy} />
-        <SocialCard title="Facebook" description={mobileAboutUsCopy} />
-        <SocialCard title="Instagram" description={mobileAboutUsCopy} />
-        <SocialCard title="Twitter" description={mobileAboutUsCopy} />
+        <SocialCard title="Twitter" description={twitterDescription} />
+        <SocialCard title="Facebook" description={comingSoon} />
+        <SocialCard title="Instagram" description={comingSoon} />
+        <SocialCard title="TikTok" description={comingSoon} />
       </Cards>
     </StyledContainer>
   );
