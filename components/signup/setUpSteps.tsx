@@ -40,7 +40,7 @@ const SetUpSteps: React.FC<Props> = ({
     <Container id="sign-up-form" className={className}>
       <SetUpTitle>
         <h2>Set up Profile Page</h2>
-        <p>It's quick and easy!</p>
+        <p>It`&apos;`s quick and easy!</p>
       </SetUpTitle>
 
       <Steps>

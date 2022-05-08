@@ -23,7 +23,7 @@ const SetUpYourProfile = () => {
             <H4>Steps to follow</H4>
             <List>
               {steps.map((description) => (
-                <ListItem>{description}</ListItem>
+                <ListItem key={description}>{description}</ListItem>
               ))}
             </List>
             <h5>
