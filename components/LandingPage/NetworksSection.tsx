@@ -82,6 +82,7 @@ const Description = styled.p`
   line-height: 1.5;
   opacity: 0.7;
   margin-bottom: 50px;
+  white-space: pre-line;
 `;
 
 const StyledContainer = styled.div`

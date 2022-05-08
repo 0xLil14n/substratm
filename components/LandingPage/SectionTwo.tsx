@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -39,7 +40,7 @@ const SectionTwo = () => {
           </Link>
         </TextContainer>
 
-        <img src="/unity.svg" />
+        <Image src="/unity.svg" alt="unity" width="1000px" height="1000px" />
       </AboutSubstratm>
     </Background>
   );
